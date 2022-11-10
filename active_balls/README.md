@@ -327,11 +327,10 @@ and there is noise. This is done with:
 
 The `POKE 771,8:POKE 772,0` sets part of the parameters for painting
 the handbarrow sprite. In the routine at line 240, the
-`J=I-INT(I/2)*2` causes `J` to be `I mod 2`. This feeds it no the
-`POKE 773,98+J` which causes the handbarrow sprite to alternate
-between the two versions. The `POKE -16298,0` and `POKE -16297,0`
-cause the display to alternate between the hi-res screen and the
-lo-res screen.
+`J=I-INT(I/2)*2` causes `J` to be `I mod 2`. This feeds into the `POKE
+773,98+J` which causes the handbarrow sprite to alternate between the
+two versions. The `POKE -16298,0` and `POKE -16297,0` cause the
+display to alternate between the hi-res screen and the lo-res screen.
 
 Second, there are three "skitter down" sounds as the handbarrow sprite
 continues to dance, just more slowly:
@@ -432,15 +431,30 @@ All the sprites in the game are drawn on byte boundaries, which makes
 it very easy. This is why all of the X coordinates are given in
 "columns"—they are not hi-res pixels.
 
+Here are the sprites from the game:
+
+![Sprites](sprites.png)
+
+The first column contains all the ball sprites, including the two
+popping sprites. The second column contains the handbarrow sprites,
+including the "death" sprite. It also contains a "hidden" sprite of an
+octopus. (The author published another game eight months earlier called
+["The Octopus"]. [Coincidence?])
+
+The third and fourth columns are the same as the first and second
+columns, but drawn starting on odd-numbered bytes. The color change is
+because of the way that the Apple II hi-res palette works. (See
+_Understanding the Apple IIe_ by Jim Sather for more information.)
+
+["The Octopus"]: https://archive.org/details/micomBASIC-1985-08/page/154/mode/1up
+[Coincidence?]: https://i.kym-cdn.com/photos/images/newsfeed/000/673/257/8c6.gif
+
 The blank space at `SPRITE_BLANK` is used to erase both the handbarrow
 and the balls, but usually just one column.
 
-There's a "hidden" sprite at `$6380` which looks a bit like an
-octopus. It's not used in the game, as far as I can tell.
-
 The `DRAW_SPRITE` routine is similar to the `HPOSN` routine, but it
 has been simplified. There are actually faster routines out there,
-notably one by Woz, but they don't matter for this game.
+notably one by Woz, but speed is not that important for this game.
 
 
 ### Sound
