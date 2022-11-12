@@ -140,19 +140,19 @@ This section of `loader.bas` expects the following:
 In pseudo code, it works like:
 
 ```basic
-    A = 0
-    READ A$
-	while A$ != '*'
-	  POKE S, VAL(A$)
-	  S++
-	  A += VAL(A$)
-	  READ A$
-	READ I, A$
-	if A == I
-	  return
-	else
-	  PRINT "Data Error in "A$
-	  end
+A = 0
+READ A$
+while A$ != '*'
+  POKE S, VAL(A$)
+  S++
+  A += VAL(A$)
+  READ A$
+READ I, A$
+if A == I
+  return
+else
+  PRINT "Data Error in "A$
+  end
 ```
 
 As mentioned before, this is surprisingly effective.
