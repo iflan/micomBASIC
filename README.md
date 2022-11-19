@@ -12,6 +12,7 @@ work.
 
 The list of Apple II programs so far:
 
+*   [Graphic Maze](graphic_maze) by Kida Kazushige (木田 和重), 1985.
 *   [The Octopus](octopus) by Shinji Minamiyama (南山 真爾), 1985.
 *   [The Active Balls](active_balls) by Shinji Minamiyama (南山 真爾),
     1986.
