@@ -1,0 +1,549 @@
+﻿### 6502bench SourceGen dis65 v1.0 ###
+{
+"_ContentVersion":5,
+"FileDataLength":512,
+"FileDataCrc32":-1358662799,
+"ProjectProps":{
+"CpuName":"65C02",
+"IncludeUndocumentedInstr":false,
+"TwoByteBrk":false,
+"EntryFlags":32702671,
+"AutoLabelStyle":"Simple",
+"AnalysisParams":{
+"AnalyzeUncategorizedData":true,
+"DefaultTextScanMode":"LowHighAscii",
+"MinCharsForString":4,
+"SeekNearbyTargets":true,
+"UseRelocData":false,
+"SmartPlpHandling":false,
+"SmartPlbHandling":true},
+
+"PlatformSymbolFileIdentifiers":["RT:Apple/F8-ROM.sym65",
+"RT:Apple/Applesoft.sym65"],
+"ExtensionScriptFileIdentifiers":[],
+"ProjectSyms":{
+"BAS_HPLOT2HK":{
+"DataDescriptor":{
+"Length":1,
+"Format":"NumericLE",
+"SubFormat":"Hex",
+"SymbolRef":null},
+
+"Comment":"Hacky way of doing HPLOT TO that relies on the next BASIC instruction not being a TO token",
+"HasWidth":false,
+"Direction":"Read",
+"MultiMask":null,
+"Label":"BAS_HPLOT2HK",
+"Value":63253,
+"Source":"Project",
+"Type":"ExternalAddr",
+"LabelAnno":"None"},
+
+"CELL_X":{
+"DataDescriptor":{
+"Length":2,
+"Format":"NumericLE",
+"SubFormat":"Hex",
+"SymbolRef":null},
+
+"Comment":"Current cell from which probes are sent",
+"HasWidth":true,
+"Direction":"ReadWrite",
+"MultiMask":null,
+"Label":"CELL_X",
+"Value":771,
+"Source":"Project",
+"Type":"ExternalAddr",
+"LabelAnno":"None"},
+
+"CELL_Y":{
+"DataDescriptor":{
+"Length":1,
+"Format":"NumericLE",
+"SubFormat":"Hex",
+"SymbolRef":null},
+
+"Comment":"",
+"HasWidth":true,
+"Direction":"ReadWrite",
+"MultiMask":null,
+"Label":"CELL_Y",
+"Value":773,
+"Source":"Project",
+"Type":"ExternalAddr",
+"LabelAnno":"None"},
+
+"CUR_X":{
+"DataDescriptor":{
+"Length":2,
+"Format":"NumericLE",
+"SubFormat":"Hex",
+"SymbolRef":null},
+
+"Comment":"Current grid cell from which CELL is initialized",
+"HasWidth":true,
+"Direction":"ReadWrite",
+"MultiMask":null,
+"Label":"CUR_X",
+"Value":777,
+"Source":"Project",
+"Type":"ExternalAddr",
+"LabelAnno":"None"},
+
+"CUR_Y":{
+"DataDescriptor":{
+"Length":1,
+"Format":"NumericLE",
+"SubFormat":"Hex",
+"SymbolRef":null},
+
+"Comment":"",
+"HasWidth":true,
+"Direction":"ReadWrite",
+"MultiMask":null,
+"Label":"CUR_Y",
+"Value":779,
+"Source":"Project",
+"Type":"ExternalAddr",
+"LabelAnno":"None"},
+
+"MAZE_HEIGHT":{
+"DataDescriptor":{
+"Length":1,
+"Format":"NumericLE",
+"SubFormat":"Hex",
+"SymbolRef":null},
+
+"Comment":"Height of the maze on the screen",
+"HasWidth":true,
+"Direction":"ReadWrite",
+"MultiMask":null,
+"Label":"MAZE_HEIGHT",
+"Value":782,
+"Source":"Project",
+"Type":"ExternalAddr",
+"LabelAnno":"None"},
+
+"MAZE_WIDTH":{
+"DataDescriptor":{
+"Length":2,
+"Format":"NumericLE",
+"SubFormat":"Hex",
+"SymbolRef":null},
+
+"Comment":"Width of the maze on the screen",
+"HasWidth":true,
+"Direction":"ReadWrite",
+"MultiMask":null,
+"Label":"MAZE_WIDTH",
+"Value":780,
+"Source":"Project",
+"Type":"ExternalAddr",
+"LabelAnno":"None"},
+
+"PATHDIR_IDX":{
+"DataDescriptor":{
+"Length":1,
+"Format":"NumericLE",
+"SubFormat":"Hex",
+"SymbolRef":null},
+
+"Comment":"Current offset into the PATHDIR array",
+"HasWidth":true,
+"Direction":"ReadWrite",
+"MultiMask":null,
+"Label":"PATHDIR_IDX",
+"Value":5,
+"Source":"Project",
+"Type":"ExternalAddr",
+"LabelAnno":"None"},
+
+"PATHDIRS":{
+"DataDescriptor":{
+"Length":4,
+"Format":"NumericLE",
+"SubFormat":"Hex",
+"SymbolRef":null},
+
+"Comment":"Array of possible path directions",
+"HasWidth":true,
+"Direction":"ReadWrite",
+"MultiMask":null,
+"Label":"PATHDIRS",
+"Value":784,
+"Source":"Project",
+"Type":"ExternalAddr",
+"LabelAnno":"None"},
+
+"PROBE":{
+"DataDescriptor":{
+"Length":3,
+"Format":"NumericLE",
+"SubFormat":"Hex",
+"SymbolRef":null},
+
+"Comment":"Used to check positions around ORIG to see the path can go there",
+"HasWidth":true,
+"Direction":"ReadWrite",
+"MultiMask":null,
+"Label":"PROBE",
+"Value":768,
+"Source":"Project",
+"Type":"ExternalAddr",
+"LabelAnno":"None"},
+
+"PROBE_X":{
+"DataDescriptor":{
+"Length":2,
+"Format":"NumericLE",
+"SubFormat":"Hex",
+"SymbolRef":null},
+
+"Comment":"Cell probed to see if it is visited",
+"HasWidth":true,
+"Direction":"ReadWrite",
+"MultiMask":null,
+"Label":"PROBE_X",
+"Value":768,
+"Source":"Project",
+"Type":"ExternalAddr",
+"LabelAnno":"None"},
+
+"PROBE_Y":{
+"DataDescriptor":{
+"Length":1,
+"Format":"NumericLE",
+"SubFormat":"Hex",
+"SymbolRef":null},
+
+"Comment":"",
+"HasWidth":true,
+"Direction":"ReadWrite",
+"MultiMask":null,
+"Label":"PROBE_Y",
+"Value":770,
+"Source":"Project",
+"Type":"ExternalAddr",
+"LabelAnno":"None"},
+
+"STARTCELL_X":{
+"DataDescriptor":{
+"Length":2,
+"Format":"NumericLE",
+"SubFormat":"Hex",
+"SymbolRef":null},
+
+"Comment":"Used to see if CELL has changed",
+"HasWidth":true,
+"Direction":"ReadWrite",
+"MultiMask":null,
+"Label":"STARTCELL_X",
+"Value":774,
+"Source":"Project",
+"Type":"ExternalAddr",
+"LabelAnno":"None"},
+
+"STARTCELL_Y":{
+"DataDescriptor":{
+"Length":1,
+"Format":"NumericLE",
+"SubFormat":"Hex",
+"SymbolRef":null},
+
+"Comment":"",
+"HasWidth":true,
+"Direction":"ReadWrite",
+"MultiMask":null,
+"Label":"STARTCELL_Y",
+"Value":776,
+"Source":"Project",
+"Type":"ExternalAddr",
+"LabelAnno":"None"}}},
+
+"AddressMap":[{
+"Offset":0,
+"Addr":45056,
+"Length":512,
+"PreLabel":"",
+"IsRelative":false}],
+"TypeHints":[{
+"Low":0,
+"High":0,
+"Hint":"Code"},
+
+{
+"Low":16,
+"High":16,
+"Hint":"Code"},
+
+{
+"Low":32,
+"High":32,
+"Hint":"Code"},
+
+{
+"Low":338,
+"High":338,
+"Hint":"Data"}],
+"StatusFlagOverrides":{
+},
+
+"Comments":{
+"3":"Load screen byte for given X,Y position",
+"5":"Clear color palette bit",
+"7":"Mask out all but bit for X position",
+"9":"Return 0 in MON_A1H",
+"11":"Return 1 in MON_A1H",
+"32":"Generate two random numbers, 0-3,",
+"35":"and store them in X and Y",
+"42":"Swap bytes in PATHDIRS,X and PATHDIRS,Y",
+"56":"Save CELL in STARTCELL",
+"67":"Start at the beginning of the PATHDIRS array",
+"71":"Copy CELL to PROBE",
+"89":"On 0, Y = Y - 2",
+"98":"On 1, X = X + 2 (two byte addition)",
+"122":"On 2, Y = Y + 2",
+"135":"On 3, X = X - 2 (two byte subtraction)",
+"152":"Check if pixel at PROBE_X, PROBE_Y is set",
+"166":"If set...",
+"168":"Otherwise...",
+"180":"Start plotting at CELL_X, CELL_Y",
+"192":"Plot to PROBE_X, PROBE_Y",
+"195":"Copy PROBE to CELL",
+"213":"Should be cmp #$04",
+"220":"Are we still in the same row?",
+"228":"No? Shuffle directions and start again.",
+"231":"Are we still in the same column?",
+"237":"No? Shuffle and start again.",
+"245":"No? Shuffle and start again.",
+"247":"Bodge job?",
+"250":"Increment Y",
+"259":"Are we done with the column?",
+"264":"Yes, start back at row 2...",
+"269":"...and move to next column (2 byte addition)",
+"286":"Are we done with all columns?",
+"289":"Compare high byte",
+"292":"If MAZE_WIDTH+1 \u003e= CURX+1",
+"295":"If MAZE_WITH+1 != CURX+1",
+"297":"Need to check the low byte",
+"305":"Check if CURX, CURY is visited",
+"319":"If it\u0027s visited, start again at CURX, CURY",
+"321":"Otherwise, try another starting cell",
+"324":"Copy CUR to ORIG"},
+
+"LongComments":{
+"-2147483647":{
+"Text":"Graphic Maze\r\n\r\nThis is a disassembly of the machine language routines POKEd into memory by the AppleSoft BASIC program in the listing.\r\n\r\nHow it works:\r\n\r\nThe basic idea is pretty simple. Imagine a grid of cells that have four walls, one in each direction.\r\n\r\n  0. Start in some cell.\r\n  1. Pick a random direction, D.\r\n  2. If the cell in direction D has been visited, go to step 1.\r\n  3. Create a path to the cell in direction D.\r\n  4. Move to the cell in direction D.\r\n  5. Go to step 1.\r\n\r\nThis simple algorithm won’t actually work because eventually the path will curl on itself and get stuck because all cells in all directions have been visited without guaranteeing that the whole maze is full. To get around that, when the program gets stuck, it starts back at step 0 with a new starting point. That starting point is always the “next” cell in the grid, starting with the column. So, the first time it is (0,0), then (0,1), etc. This is guaranteed to fill the maze.\r\n\r\nThe program also has a few tricks to make things work out nicely:\r\n\r\nFirst, each cell is actually 2 x 2 pixels so that the walls are visible.\r\n\r\nSecond, it looks at pixel values on the HGR2 screen to see if a cell has been visited. A black pixel has been visited, a white pixel has not.\r\n\r\nThird, the BASIC program paints a rectangle on the screen, starting at (1,1), where the height and width are an odd number of pixels. The offset means that the rectangle is entirely surrounded by black pixels. If these are probed, the program will see them as visited. This keeps the maze from wandering out of the rectangle.\r\n\r\nFourth, instead of picking a direction at random, the program keeps a list of the possible directions and walks through that list to see which direction it can go. When it runs out of directions, it knows it’s time to start at step 0 again. The direction list is shuffled every time it starts in a new cell. (The list is not shuffled very well, though.)\r\n\r\nThe BASIC program also sets the upper-left pixel to black to mark it as visited.\r\n\r\nThe most annoying thing about this program, though, is that the starting address is $B000. This causes it to clobber DOS 3.3. In ProDOS, it clobbers the BASIC Interpreter, which is very annoying.\r\n\r\nThe entry point from BASIC is $B020.",
+"BoxMode":false,
+"MaxWidth":80,
+"BackgroundColor":0},
+
+"0":{
+"Text":"CHECKXY checks whether a given pixel on the screen is on or off. If it is off, then $00 is stored in MON_A1H, otherwise $01 is stored in MON_A1H.\r\n\r\nAll registers are destroyed.",
+"BoxMode":false,
+"MaxWidth":80,
+"BackgroundColor":0},
+
+"16":{
+"Text":"RANDOM returns a random number between 0 and 3. It calls the AppleSoft RND function, then mixes two of the resulting bytes, finally trimming to the low-order 2 bits.\r\n\r\nA: random number 0 - 3",
+"BoxMode":false,
+"MaxWidth":80,
+"BackgroundColor":0},
+
+"32":{
+"Text":"NEXT_PATH is the entry point from BASIC. It assumes that:\r\n\r\n* The HGR2 screen is filled with a white rectangle with one black pixel at 2,2.\r\n* The PATHDIRS array is initialized with 0, 1, 2, 3 representing directions:\r\n  0: Y = Y - 2\r\n  1: X = X + 2\r\n  2: Y = Y + 2\r\n  3: X = X - 2\r\n* CUR_X = 2\r\n* CUR_Y = 2\r\n* CELL_X = 2\r\n* CELL_Y = 2\r\n* MAZE_WIDTH = width of maze * 2\r\n* MAZE_HEIGHT = height of maze * 2 \r\n\r\nThis returns when the maze is drawn.",
+"BoxMode":false,
+"MaxWidth":80,
+"BackgroundColor":0},
+
+"82":{
+"Text":"Choose maze direction based on current index into PATHDIRS array",
+"BoxMode":false,
+"MaxWidth":80,
+"BackgroundColor":0}},
+
+"Notes":{
+},
+
+"UserLabels":{
+"16":{
+"Label":"RANDOM",
+"Value":45072,
+"Source":"User",
+"Type":"GlobalAddr",
+"LabelAnno":"None"},
+
+"0":{
+"Label":"CHECKXY",
+"Value":45056,
+"Source":"User",
+"Type":"GlobalAddr",
+"LabelAnno":"None"},
+
+"13":{
+"Label":"save",
+"Value":45069,
+"Source":"User",
+"Type":"NonUniqueLocalAddr",
+"LabelAnno":"None"},
+
+"58":{
+"Label":"nextcpy1",
+"Value":45114,
+"Source":"User",
+"Type":"NonUniqueLocalAddr",
+"LabelAnno":"None"},
+
+"73":{
+"Label":"nextprobe",
+"Value":45129,
+"Source":"User",
+"Type":"NonUniqueLocalAddr",
+"LabelAnno":"None"},
+
+"152":{
+"Label":"cont",
+"Value":45208,
+"Source":"User",
+"Type":"NonUniqueLocalAddr",
+"LabelAnno":"None"},
+
+"98":{
+"Label":"chk1",
+"Value":45154,
+"Source":"User",
+"Type":"NonUniqueLocalAddr",
+"LabelAnno":"None"},
+
+"122":{
+"Label":"chk2",
+"Value":45178,
+"Source":"User",
+"Type":"NonUniqueLocalAddr",
+"LabelAnno":"None"},
+
+"135":{
+"Label":"chk3",
+"Value":45191,
+"Source":"User",
+"Type":"NonUniqueLocalAddr",
+"LabelAnno":"None"},
+
+"171":{
+"Label":"DRAWPATH",
+"Value":45227,
+"Source":"User",
+"Type":"GlobalAddr",
+"LabelAnno":"None"},
+
+"197":{
+"Label":"nextorig",
+"Value":45253,
+"Source":"User",
+"Type":"NonUniqueLocalAddr",
+"LabelAnno":"None"},
+
+"32":{
+"Label":"NEXT_PATH",
+"Value":45088,
+"Source":"User",
+"Type":"GlobalAddrExport",
+"LabelAnno":"None"},
+
+"209":{
+"Label":"TRY_NEXT_DIR",
+"Value":45265,
+"Source":"User",
+"Type":"GlobalAddr",
+"LabelAnno":"None"},
+
+"71":{
+"Label":"NEXT_DIR",
+"Value":45127,
+"Source":"User",
+"Type":"GlobalAddr",
+"LabelAnno":"None"},
+
+"294":{
+"Label":"RETURN",
+"Value":45350,
+"Source":"User",
+"Type":"GlobalAddr",
+"LabelAnno":"None"},
+
+"220":{
+"Label":"CHECK_MOVED",
+"Value":45276,
+"Source":"User",
+"Type":"GlobalAddr",
+"LabelAnno":"None"},
+
+"228":{
+"Label":"do_next_path",
+"Value":45284,
+"Source":"User",
+"Type":"NonUniqueLocalAddr",
+"LabelAnno":"None"},
+
+"231":{
+"Label":"check_x",
+"Value":45287,
+"Source":"User",
+"Type":"NonUniqueLocalAddr",
+"LabelAnno":"None"},
+
+"326":{
+"Label":"nextorig",
+"Value":45382,
+"Source":"User",
+"Type":"NonUniqueLocalAddr",
+"LabelAnno":"None"},
+
+"250":{
+"Label":"NEXT_START",
+"Value":45306,
+"Source":"User",
+"Type":"GlobalAddr",
+"LabelAnno":"None"},
+
+"324":{
+"Label":"copy",
+"Value":45380,
+"Source":"User",
+"Type":"NonUniqueLocalAddr",
+"LabelAnno":"None"},
+
+"305":{
+"Label":"chk_visited",
+"Value":45361,
+"Source":"User",
+"Type":"NonUniqueLocalAddr",
+"LabelAnno":"None"},
+
+"295":{
+"Label":"check_equal",
+"Value":45351,
+"Source":"User",
+"Type":"NonUniqueLocalAddr",
+"LabelAnno":"None"}},
+
+"OperandFormats":{
+"338":{
+"Length":174,
+"Format":"Junk",
+"SubFormat":"Align256",
+"SymbolRef":null}},
+
+"LvTables":{
+},
+
+"Visualizations":[],
+"VisualizationAnimations":[],
+"VisualizationSets":{
+},
+
+"RelocList":{
+},
+
+"DbrValues":{
+}}
